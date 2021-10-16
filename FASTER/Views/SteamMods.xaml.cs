@@ -108,7 +108,7 @@ namespace FASTER.Views
 
         private void ImportModsFromSteam()
         {
-            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410")))
+            if (!Directory.Exists(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100")))
             {
                 Dispatcher?.Invoke(() =>
                 {
@@ -117,7 +117,7 @@ namespace FASTER.Views
                 });
                 return;
             }
-            var            steamMods   = Directory.GetDirectories(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410"));
+            var            steamMods   = Directory.GetDirectories(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100"));
             List<SteamMod> currentMods = new List<SteamMod>();
 
             if (Properties.Settings.Default.steamMods != null)
@@ -130,7 +130,7 @@ namespace FASTER.Views
             {
                 try
                 {
-                    var sModId = steamMod.Replace(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410"), "").Replace("\\", "");
+                    var sModId = steamMod.Replace(Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100"), "").Replace("\\", "");
                     if (uint.TryParse(sModId, out var modId))
                     {
                         try
@@ -265,7 +265,7 @@ namespace FASTER.Views
                 {
                     string steamCommand = "+login " + MetroWindow.ContentSteamUpdater.ISteamUserBox.Text + " " + Encryption.Instance.DecryptData(Properties.Settings.Default.steamPassword);
 
-                    steamCommand = modsToUpdate.Aggregate(steamCommand, (current, steamMod) => $"{current} +workshop_download_item 107410 {steamMod}");
+                    steamCommand = modsToUpdate.Aggregate(steamCommand, (current, steamMod) => $"{current} +workshop_download_item 221100 {steamMod}");
 
                     string steamCmd = MetroWindow.ContentSteamUpdater.ISteamDirBox.Text + @"\steamcmd.exe";
                     steamCommand += " validate +quit";
@@ -292,7 +292,7 @@ namespace FASTER.Views
         {
             if (MetroWindow.ContentSteamUpdater.ReadyToUpdate())
             {
-                string modPath = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410", modId.ToString());
+                string modPath = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100", modId.ToString());
 
                 if (!Directory.Exists(modPath))
                 { Directory.CreateDirectory(modPath); }
@@ -319,7 +319,7 @@ namespace FASTER.Views
                 if (!singleMod) return;
 
                 string steamCmd     = MetroWindow.ContentSteamUpdater.ISteamDirBox.Text                                                                                                              + @"\steamcmd.exe";
-                string steamCommand = "+login " + MetroWindow.ContentSteamUpdater.ISteamUserBox.Text + " " + Encryption.Instance.DecryptData(Properties.Settings.Default.steamPassword) + " +workshop_download_item 107410 " + modId + " validate +quit";
+                string steamCommand = "+login " + MetroWindow.ContentSteamUpdater.ISteamUserBox.Text + " " + Encryption.Instance.DecryptData(Properties.Settings.Default.steamPassword) + " +workshop_download_item 221100 " + modId + " validate +quit";
 
                 List<string> modIDs = new List<string>
                 { modId.ToString() };
@@ -378,10 +378,10 @@ namespace FASTER.Views
         {
             var steamMod = (SteamMod)((Button)e.Source).DataContext;
 
-            if (Directory.Exists(Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\107410\" + steamMod.WorkshopId))
+            if (Directory.Exists(Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\221100\" + steamMod.WorkshopId))
             { 
                 try
-                { Directory.Delete(Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\107410\" + steamMod.WorkshopId, true); }
+                { Directory.Delete(Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\221100\" + steamMod.WorkshopId, true); }
                 catch
                 {
                     MainWindow.Instance.IFlyoutMessage.Content = $"Could not delete mod \"{steamMod.Name}\"";

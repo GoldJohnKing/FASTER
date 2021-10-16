@@ -86,7 +86,7 @@ namespace FASTER.Models
 
         private static string GetModSize(uint workshopId)
         {
-            var modFolder = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410", workshopId.ToString());
+            var modFolder = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100", workshopId.ToString());
             if (!Directory.Exists(modFolder)) return "Unknown";
 
             double fullSize = GetDirectorySize(modFolder);
@@ -242,7 +242,7 @@ namespace FASTER.Models
 
             var modName = modInfo?.SelectToken("title").ToString();
             
-            return modInfo?.SelectToken("creator_appid").ToString() == "107410" ? new Tuple<string, string, int>(modName, author, steamUpdateTime) : null;
+            return modInfo?.SelectToken("creator_appid").ToString() == "221100" ? new Tuple<string, string, int>(modName, author, steamUpdateTime) : null;
         }
 
         public static void UpdateInfoFromSteam()

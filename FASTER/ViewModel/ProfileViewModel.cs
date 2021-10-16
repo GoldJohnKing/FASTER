@@ -346,7 +346,7 @@ namespace FASTER.ViewModel
         internal async Task CopyModKeys()
         {
             var mods = new List<string>();
-            var path = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "107410");
+            var path = Path.Combine(Properties.Settings.Default.steamCMDPath, "steamapps", "workshop", "content", "221100");
 
             if (!Directory.Exists(path))
             {

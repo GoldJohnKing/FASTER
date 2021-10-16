@@ -81,22 +81,22 @@ namespace FASTER.Views
             switch (IServerBranch.Text)
             {
                 case "Stable":
-                    branch = "233780"; //Arma3 Server main branch
+                    branch = "223350"; //Arma3 Server main branch
                     break;
                 case "Contact": //Arma 3 server Contact DLC
-                    branch = "233780 -beta contact";
+                    branch = "223350 -beta contact";
                     break;
                 case "Creator DLC": //Arma 3 server Creator DLC
-                    branch = "233780 -beta creatordlc";
+                    branch = "223350 -beta creatordlc";
                     break;
                 case "LegacyPorts": //Arma 3 server Legacy Ports branch for linux
-                    branch = "233780 -beta legacyPorts -betapassword Arma3LegacyPorts";
+                    branch = "223350 -beta legacyPorts -betapassword Arma3LegacyPorts";
                     break;
                 case "Developpment": //Arma 3 Developpment branch, only for developpment clients
-                    branch = "107410 -beta development";
+                    branch = "221100 -beta development";
                     break;
                 case "Performance / Profiling":
-                    branch = "233780 -beta profiling -betapassword CautionSpecialProfilingAndTestingBranchArma3";
+                    branch = "223350 -beta profiling -betapassword CautionSpecialProfilingAndTestingBranchArma3";
                     break;
                 default:
                     Console.WriteLine("Nothing to see here");
@@ -485,8 +485,8 @@ namespace FASTER.Views
                 { modToUpdate.Status = "Download Not Complete"; }
                 else
                 {
-                    string modTempPath = Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\downloads\107410\" + modID;
-                    string modPath = Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\107410\" + modID;
+                    string modTempPath = Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\downloads\221100\" + modID;
+                    string modPath = Properties.Settings.Default.steamCMDPath + @"\steamapps\workshop\content\221100\" + modID;
 
                     if (Directory.Exists(modTempPath))
                         modToUpdate.Status = "Download Not Complete";
